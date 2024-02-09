@@ -144,7 +144,7 @@ app.get("/", (req, res) => {
 
 app.use("/users", userRoutes);
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://trevorokwirri:trevor%401234@anonymous-justice.eppsouf.mongodb.net/?retryWrites=true&w=majority/instabook", {
+mongoose.connect("mongodb+srv://trevorokwirri:trevor%401234@anonymous-justice.eppsouf.mongodb.net/?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
