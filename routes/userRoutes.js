@@ -640,7 +640,7 @@ router.get("/reset-password/:resetToken", async (req, res) => {
     resetTokenExpires: { $gt: new Date() },
   });
 
-  if (!user) {const errorHTML = error ? `<div class="error-message">${error}</div>` : '';
+  if (!user) {
     return res.send(`<!-- views/invalid-token.ejs -->
 
     <!DOCTYPE html>
@@ -1035,8 +1035,9 @@ router.get("/reset-password/:resetToken", async (req, res) => {
                           onfocus="stopRotation('confirmPassword')">
                       <i class="toggle-password" onclick="togglePassword('confirmPassword')">👁️</i>
                   </div>
-  
-                      ${errorHTML}
+                    <div class="error-message">
+                          Invalid token
+                      </div>
                           <button type="submit">Reset Password</button>
               </form>
           </div>
