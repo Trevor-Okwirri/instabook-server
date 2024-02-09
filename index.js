@@ -1,20 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const helmet = require("helmet");
 const userRoutes = require("./routes/userRoutes");
-const deviceInfoMiddleware = require("./middleware/deviceInfo");
 const http = require("http");
 const app = express();
 
 // Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
-app.use(cors());
-app.use(helmet());
-app.use(deviceInfoMiddleware.captureDeviceInfo);
 
 
 // Routes
