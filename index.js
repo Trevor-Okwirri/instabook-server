@@ -4,7 +4,11 @@ const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
 const http = require("http");
 const app = express();
+const dotenv = require("dotenv");
 
+
+// Load environment variables from .env file
+dotenv.config();
 // Middleware
 app.set("view engine", "ejs");
 app.use(cors());

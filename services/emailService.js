@@ -3,7 +3,8 @@ const dotenv = require("dotenv");
 
 // Load environment variables from .env file
 dotenv.config();
-
+console.log("Enviroonment variable")
+console.log(process.env.SENDINBLUE_API_KEY)
 const sendinblueApiKey = process.env.SENDINBLUE_API_KEY;
 
 const defaultClient = SibApiV3Sdk.ApiClient.instance;
