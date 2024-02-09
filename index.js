@@ -1,11 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
 const http = require("http");
 const app = express();
 
 // Middleware
 app.set("view engine", "ejs");
+app.use(cors());
+app.use(express.json());
 
 
 // Routes
