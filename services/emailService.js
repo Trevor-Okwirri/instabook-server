@@ -1,7 +1,11 @@
 const SibApiV3Sdk = require("sib-api-v3-sdk");
+const dotenv = require("dotenv");
 
-const sendinblueApiKey =
-  "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";
+// Load environment variables from .env file
+dotenv.config();
+
+const sendinblueApiKey = process.env.SENDINBLUE_API_KEY;
+
 const defaultClient = SibApiV3Sdk.ApiClient.instance;
 const apiKey = defaultClient.authentications["api-key"];
 apiKey.apiKey = sendinblueApiKey;
@@ -14,7 +18,6 @@ const sendEmail = async (to, subject, html) => {
     name: "InstaBook",
   };
 
-  
   const receivers = [
     {
       email: to,
@@ -37,6 +40,7 @@ const sendEmail = async (to, subject, html) => {
     throw error; // Re-throw the error for further handling
   }
 };
+
 const sendVerificationEmail = async (to, token) => {
   const subject = "🚀 Welcome to Instabook - Verify Your Email 🚀";
   const verificationLink = `https://instabook-server-seven.vercel.app/users/verify/${token}`;
