@@ -2247,6 +2247,10 @@ router.post("/loginwithemail", async (req, res) => {
 
     var user = await User.findOne({ email});
 
+    if(user.isEmailVerified == false){
+        user.isEmailVerified = true;
+        await user.save();
+    }
     // Generate JWT token with user information
     const token = generateToken({
       userId: user._id,
