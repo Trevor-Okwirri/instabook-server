@@ -10,10 +10,11 @@ const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 
 const sendEmail = async (to, subject, html) => {
   const sender = {
-    email: "InstaBook@gmail.com",
+    email: "huruchatinc@gmail.com",
     name: "InstaBook",
   };
 
+  
   const receivers = [
     {
       email: to,
