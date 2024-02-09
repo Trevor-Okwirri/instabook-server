@@ -367,7 +367,7 @@ router.get("/verify/:token", async (req, res) => {
               <p>Your email (<span class="verification-success">
                       ${userEmail}
                   </span>) has already been verified.</p>
-              <p class="huru-message">Welcome to <span class="verification-success">Insta</span>Book!</p>
+              <p class="huru-message">Welcome to <span class="verification-success">Instabook</span></p>
           </div>
       </body>
       

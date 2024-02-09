@@ -1,7 +1,7 @@
 const SibApiV3Sdk = require("sib-api-v3-sdk");
 
 const sendinblueApiKey =
-  "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";
+  "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";
 const defaultClient = SibApiV3Sdk.ApiClient.instance;
 const apiKey = defaultClient.authentications["api-key"];
 apiKey.apiKey = sendinblueApiKey;
@@ -45,7 +45,7 @@ const sendVerificationEmail = async (to, token) => {
   const html = `
     <div style="background-color: #2c3e50; padding: 20px; border-radius: 10px; color: #ecf0f1; text-align: center;">
       <h2 style="color: #3498db;">Welcome to Instabook!</h2>
-      <p>Thank you for joining the Huru Chat community. To get started, please verify your email address.</p>
+      <p>Thank you for joining the joining community. To get started, please verify your email address.</p>
       
       <div style="margin-top: 20px;">
         <a href="${verificationLink}" style="padding: 10px 20px; background-color: #e74c3c; color: white; text-decoration: none; display: inline-block; border-radius: 5px; font-weight: bold; text-transform: uppercase;">Verify Email</a>
