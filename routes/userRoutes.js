@@ -250,7 +250,128 @@ router.get("/verify/:token", async (req, res) => {
     if (user.isEmailVerified) {
       // If already verified, render the success EJS template
       const userEmail = user.email;
-      return res.render("verification-success", { userEmail });
+      return res.send(`<!-- views/verification-success.ejs -->
+
+      <!DOCTYPE html>
+      <html lang="en">
+      
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Email Already Verified</title>
+          <style>
+              body {
+                  font-family: 'Arial', sans-serif;
+                  text-align: center;
+                  margin: 0;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  height: 100vh;
+                  overflow: hidden;
+                  background-color: rgba(20, 22, 26, 0.9);
+                  color: #fff;
+              }
+      
+              .container {
+                  position: relative;
+                  background-color: rgba(255, 255, 255, 0.1);
+                  border-radius: 15px;
+                  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+                  padding: 30px;
+                  text-align: center;
+                  animation: fadeIn 0.8s ease-in-out, jumpAnimation 0.5s ease-in-out infinite;
+                  max-width: 400px;
+                  width: 100%;
+                  transform-style: preserve-3d;
+                  backdrop-filter: blur(10px);
+              }
+      
+              h1 {
+                  color: #4CAF50;
+                  font-size: 2em;
+                  margin-top: 20px;
+              }
+      
+              p {
+                  color: #333;
+                  font-size: 1.2em;
+              }
+      
+              .verification-success {
+                  font-size: 1.5em;
+                  font-weight: bold;
+                  color: #e44d26;
+                  /* Orange */
+                  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+                  animation: pulseAnimation 2s ease-in-out infinite;
+              }
+      
+              .huru-message {
+                  font-size: 1.2em;
+                  color: #e44d26;
+                  /* Orange */
+                  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+              }
+      
+              @keyframes pulseAnimation {
+                  0% {
+                      transform: scale(1);
+                  }
+      
+                  50% {
+                      transform: scale(1.1);
+                  }
+      
+                  100% {
+                      transform: scale(1);
+                  }
+              }
+      
+              @keyframes jumpAnimation {
+      
+                  0%,
+                  20%,
+                  50%,
+                  80%,
+                  100% {
+                      transform: translateY(0);
+                  }
+      
+                  40% {
+                      transform: translateY(-10px);
+                  }
+      
+                  60% {
+                      transform: translateY(-5px);
+                  }
+              }
+      
+              @keyframes fadeIn {
+                  from {
+                      opacity: 0;
+                      transform: translateY(-20px);
+                  }
+      
+                  to {
+                      opacity: 1;
+                      transform: translateY(0);
+                  }
+              }
+          </style>
+      </head>
+      
+      <body>
+          <div class="container">
+              <h1>Email Already Verified!</h1>
+              <p>Your email (<span class="verification-success">
+                      ${userEmail}
+                  </span>) has already been verified.</p>
+              <p class="huru-message">Welcome to <span class="verification-success">Insta</span>Book!</p>
+          </div>
+      </body>
+      
+      </html>`);
     }
 
     // Mark the user as verified
@@ -259,7 +380,128 @@ router.get("/verify/:token", async (req, res) => {
 
     // Render the success EJS template with animation and "HURU" standing out
     const userEmail = user.email;
-    res.render("verification-success", { userEmail });
+    res.send(`<!-- views/verification-success.ejs -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Email Already Verified</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                text-align: center;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                overflow: hidden;
+                background-color: rgba(20, 22, 26, 0.9);
+                color: #fff;
+            }
+    
+            .container {
+                position: relative;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 15px;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+                padding: 30px;
+                text-align: center;
+                animation: fadeIn 0.8s ease-in-out, jumpAnimation 0.5s ease-in-out infinite;
+                max-width: 400px;
+                width: 100%;
+                transform-style: preserve-3d;
+                backdrop-filter: blur(10px);
+            }
+    
+            h1 {
+                color: #4CAF50;
+                font-size: 2em;
+                margin-top: 20px;
+            }
+    
+            p {
+                color: #333;
+                font-size: 1.2em;
+            }
+    
+            .verification-success {
+                font-size: 1.5em;
+                font-weight: bold;
+                color: #e44d26;
+                /* Orange */
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+                animation: pulseAnimation 2s ease-in-out infinite;
+            }
+    
+            .huru-message {
+                font-size: 1.2em;
+                color: #e44d26;
+                /* Orange */
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+    
+            @keyframes pulseAnimation {
+                0% {
+                    transform: scale(1);
+                }
+    
+                50% {
+                    transform: scale(1.1);
+                }
+    
+                100% {
+                    transform: scale(1);
+                }
+            }
+    
+            @keyframes jumpAnimation {
+    
+                0%,
+                20%,
+                50%,
+                80%,
+                100% {
+                    transform: translateY(0);
+                }
+    
+                40% {
+                    transform: translateY(-10px);
+                }
+    
+                60% {
+                    transform: translateY(-5px);
+                }
+            }
+    
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+    
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <h1>Email Already Verified!</h1>
+            <p>Your email (<span class="verification-success">
+                    ${userEmail}
+                </span>) has already been verified.</p>
+            <p class="huru-message">Welcome to <span class="verification-success">Insta</span>Book!</p>
+        </div>
+    </body>
+    
+    </html>`);
   } catch (error) {
     console.error(error);
     // Render the error EJS template with a shaking animation
@@ -284,7 +526,112 @@ router.get("/reset-password/:resetToken", async (req, res) => {
   const decodedToken = validateResetToken(resetToken);
 
   if (!decodedToken) {
-    return res.render("invalid-token");
+    return res.send(`<!-- views/invalid-token.ejs -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Password Reset</title>
+        <style>
+            body {
+                background-color: #1a1a1a;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+    
+            .container {
+                background-color: #292929;
+                border-radius: 8px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+                padding: 30px;
+                text-align: center;
+                animation: fadeIn 0.8s ease-in-out;
+                max-width: 400px;
+                width: 100%;
+            }
+    
+            h1 {
+                color: #e44d26;
+                font-size: 2.5em;
+                margin-bottom: 20px;
+                animation: titleFadeIn 1s ease-in-out;
+            }
+    
+            .welcome-text {
+                color: #fff;
+                font-size: 1.2em;
+                margin-bottom: 10px;
+            }
+    
+            .chat-app-name {
+                font-weight: bold;
+                color: #e44d26;
+                font-size: 1.3em;
+                transition: color 0.5s ease-in-out;
+            }
+    
+            p {
+                color: #ccc;
+                font-size: 1.1em;
+                line-height: 1.5;
+            }
+    
+            a {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #e44d26;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease-in-out;
+            }
+    
+            a:hover {
+                background-color: #d0371a;
+            }
+    
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+    
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+    
+            @keyframes titleFadeIn {
+                from {
+                    opacity: 0;
+                }
+    
+                to {
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <h1><span class="welcome-text">Welcome to</span> <span class="chat-app-name">HuruChat</span></h1>
+            <p>The password reset token is either invalid or has expired.</p>
+            <p>Please make sure you are using the correct link or initiate a new password reset.</p>
+        </div>
+    </body>
+    
+    </html>`);
   }
   // Find the user by email from the token
   const user = await User.findOne({
@@ -293,11 +640,451 @@ router.get("/reset-password/:resetToken", async (req, res) => {
     resetTokenExpires: { $gt: new Date() },
   });
 
-  if (!user) {
-    return res.render("invalid-token");
+  if (!user) {const errorHTML = error ? `<div class="error-message">${error}</div>` : '';
+    return res.send(`<!-- views/invalid-token.ejs -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Password Reset</title>
+        <style>
+            body {
+                background-color: #1a1a1a;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+    
+            .container {
+                background-color: #292929;
+                border-radius: 8px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+                padding: 30px;
+                text-align: center;
+                animation: fadeIn 0.8s ease-in-out;
+                max-width: 400px;
+                width: 100%;
+            }
+    
+            h1 {
+                color: #e44d26;
+                font-size: 2.5em;
+                margin-bottom: 20px;
+                animation: titleFadeIn 1s ease-in-out;
+            }
+    
+            .welcome-text {
+                color: #fff;
+                font-size: 1.2em;
+                margin-bottom: 10px;
+            }
+    
+            .chat-app-name {
+                font-weight: bold;
+                color: #e44d26;
+                font-size: 1.3em;
+                transition: color 0.5s ease-in-out;
+            }
+    
+            p {
+                color: #ccc;
+                font-size: 1.1em;
+                line-height: 1.5;
+            }
+    
+            a {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #e44d26;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease-in-out;
+            }
+    
+            a:hover {
+                background-color: #d0371a;
+            }
+    
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+    
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+    
+            @keyframes titleFadeIn {
+                from {
+                    opacity: 0;
+                }
+    
+                to {
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <h1><span class="welcome-text">Welcome to</span> <span class="chat-app-name">Instabook</span></h1>
+            <p>The password reset token is either invalid or has expired.</p>
+            <p>Please make sure you are using the correct link or initiate a new password reset.</p>
+        </div>
+    </body>
+    
+    </html>`);
   }
 
-  res.render("reset-password", { resetToken, error: "" });
+  res.send(`<!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Reset Password</title>
+      <style>
+          body {
+              background: #14161a;
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              margin: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 100vh;
+              overflow: hidden;
+              color: #fff;
+          }
+  
+          .container {
+              position: relative;
+              background-color: rgba(255, 255, 255, 0.1);
+              border-radius: 15px;
+              box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+              padding: 30px;
+              text-align: center;
+              animation: fadeIn 0.8s ease-in-out, rotateCard 30s linear infinite;
+              max-width: 800px;
+              width: 100%;
+              transform-style: preserve-3d;
+              backdrop-filter: blur(10px);
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+          }
+  
+          .left-column,
+          .right-column {
+              text-align: center;
+              margin-bottom: 20px;
+          }
+  
+          .left-column {
+              order: 2;
+          }
+  
+          .right-column {
+              order: 1;
+          }
+  
+          .chat-app-name {
+              font-weight: bold;
+              font-size: 2em;
+              transition: color 0.5s ease-in-out;
+          }
+  
+          .chat-app-name span {
+              display: inline-block;
+              animation: pulsateRainbow 3s ease-in-out infinite;
+              text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+          }
+  
+          p {
+              font-size: 1.3em;
+              line-height: 1.5;
+          }
+  
+          h2 {
+              color: #fff;
+              font-size: 2em;
+          }
+  
+          form {
+              width: 100%;
+              max-width: 400px;
+              margin: 0 auto;
+              display: grid;
+              grid-template-rows: repeat(3, auto);
+              grid-gap: 20px;
+          }
+  
+          label {
+              font-size: 1.3em;
+              margin-bottom: 8px;
+          }
+  
+          input {
+              padding: 15px;
+              width: 100%;
+              box-sizing: border-box;
+              border: 2px solid rgba(255, 255, 255, 0.1);
+              border-radius: 8px;
+              transition: border-color 0.3s ease-in-out;
+              background: rgba(255, 255, 255, 0.1);
+              color: #fff;
+          }
+  
+          input:focus {
+              border-color: #e44d26;
+          }
+  
+          button {
+              padding: 15px 30px;
+              background-color: #e44d26;
+              color: #fff;
+              text-decoration: none;
+              border: none;
+              border-radius: 8px;
+              cursor: pointer;
+              transition: background-color 0.3s ease-in-out;
+          }
+  
+          button:hover {
+              background-color: #d0371a;
+          }
+  
+          a {
+              margin-top: 20px;
+              color: #e44d26;
+              text-decoration: none;
+              font-size: 1.2em;
+              transition: color 0.3s ease-in-out;
+          }
+  
+          a:hover {
+              color: #b5341d;
+          }
+  
+          .password-container {
+              position: relative;
+          }
+  
+          .password-container i {
+              position: absolute;
+              top: 50%;
+              right: 10px;
+              transform: translateY(-50%);
+              cursor: pointer;
+          }
+  
+          .rotate-stop {
+              animation: none !important;
+          }
+  
+          .error-message {
+              color: #ff3333;
+              margin-top: 10px;
+              font-size: 1.2em;
+          }
+  
+          @media (min-width: 768px) {
+              .container {
+                  flex-direction: row;
+              }
+  
+              .left-column,
+              .right-column {
+                  text-align: left;
+                  margin-bottom: 0;
+              }
+  
+              .left-column {
+                  order: 1;
+                  flex: 1;
+              }
+  
+              .right-column {
+                  order: 2;
+                  flex: 1;
+              }
+  
+              .chat-app-name {
+                  font-size: 3em;
+              }
+  
+              h2 {
+                  font-size: 2.5em;
+              }
+          }
+  
+          @keyframes fadeIn {
+              from {
+                  opacity: 0;
+                  transform: translateY(-20px);
+              }
+  
+              to {
+                  opacity: 1;
+                  transform: translateY(0);
+              }
+          }
+  
+          @keyframes rotateCard {
+              0% {
+                  transform: rotateY(0deg);
+              }
+  
+              25% {
+                  transform: rotateY(60deg);
+              }
+  
+              50% {
+                  transform: rotateY(0deg);
+              }
+  
+              75% {
+                  transform: rotateY(-50deg);
+              }
+  
+              100% {
+                  transform: rotateY(0deg);
+              }
+          }
+  
+          @keyframes pulsateRainbow {
+              0% {
+                  color: #e44d26;
+              }
+  
+              10% {
+                  color: #ff0000;
+              }
+  
+              20% {
+                  color: #ffae00;
+              }
+  
+              30% {
+                  color: #00ff00;
+              }
+  
+              40% {
+                  color: #ffea00;
+              }
+  
+              50% {
+                  color: #0000ff;
+              }
+  
+              60% {
+                  color: #8bc34a;
+              }
+  
+              70% {
+                  color: #ff00ff;
+              }
+  
+              80% {
+                  color: #2196f3;
+              }
+  
+              90% {
+                  color: #00ffff;
+              }
+  
+              100% {
+                  color: #e44d26;
+              }
+          }
+      </style>
+  </head>
+  
+  <body>
+      <div class="container" id="cardContainer">
+          <div class="left-column">
+              <h1><span class="chat-app-name"><span>H</span><span>u</span><span>r</span><span>u</span></span></h1>
+              <p>Enter and confirm your new password.</p>
+          </div>
+          <div class="right-column">
+              <h2>Reset Password</h2>
+              <form id="resetPasswordForm" method="post" onsubmit="return validatePasswords()">
+                  <label for="newPassword">New Password</label>
+                  <div class="password-container">
+                      <input type="password" id="newPassword" name="newPassword" required
+                          onfocus="stopRotation('newPassword')">
+                      <i class="toggle-password" onclick="togglePassword('newPassword')">👁️</i>
+                  </div>
+  
+                  <label for="confirmPassword">Confirm Password</label>
+                  <div class="password-container">
+                      <input type="password" id="confirmPassword" name="confirmPassword" required
+                          onfocus="stopRotation('confirmPassword')">
+                      <i class="toggle-password" onclick="togglePassword('confirmPassword')">👁️</i>
+                  </div>
+  
+                      ${errorHTML}
+                          <button type="submit">Reset Password</button>
+              </form>
+          </div>
+      </div>
+  
+      <script>
+          document.addEventListener('DOMContentLoaded', function () {
+              const resetToken = window.location.pathname.split('/').pop();
+              const form = document.getElementById('resetPasswordForm');
+              form.action = "/users/reset-password/${resetToken}";
+          });
+  
+          function stopRotation(elementId) {
+              document.getElementById("cardContainer").classList.add("rotate-stop");
+              document.getElementById(elementId).addEventListener("blur", function () {
+                  document.getElementById("cardContainer").classList.remove("rotate-stop");
+              });
+          }
+  
+          function validatePasswords() {
+              var newPassword = document.getElementById("newPassword").value;
+              var confirmPassword = document.getElementById("confirmPassword").value;
+  
+              if (newPassword !== confirmPassword) {
+                  showError("Passwords do not match. Please enter matching passwords.");
+                  return false; // Prevent form submission
+              }
+  
+              return true; // Allow form submission
+          }
+  
+          function togglePassword(elementId) {
+              var passwordInput = document.getElementById(elementId);
+              passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+          }
+  
+          function showError(message) {
+              var errorContainer = document.createElement("div");
+              errorContainer.className = "error-message";
+              errorContainer.textContent = message;
+  
+              var form = document.getElementById('resetPasswordForm');
+              form.appendChild(errorContainer);
+          }
+      </script>
+  </body>
+  
+  </html>`, { resetToken, error: "" });
 });
 
 // Route to handle password reset
@@ -309,7 +1096,112 @@ router.post("/reset-password/:resetToken", async (req, res) => {
   const decodedToken = validateResetToken(resetToken);
 
   if (!decodedToken) {
-    return res.render("invalid-token");
+    return res.send(`<!-- views/invalid-token.ejs -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Password Reset</title>
+        <style>
+            body {
+                background-color: #1a1a1a;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+    
+            .container {
+                background-color: #292929;
+                border-radius: 8px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+                padding: 30px;
+                text-align: center;
+                animation: fadeIn 0.8s ease-in-out;
+                max-width: 400px;
+                width: 100%;
+            }
+    
+            h1 {
+                color: #e44d26;
+                font-size: 2.5em;
+                margin-bottom: 20px;
+                animation: titleFadeIn 1s ease-in-out;
+            }
+    
+            .welcome-text {
+                color: #fff;
+                font-size: 1.2em;
+                margin-bottom: 10px;
+            }
+    
+            .chat-app-name {
+                font-weight: bold;
+                color: #e44d26;
+                font-size: 1.3em;
+                transition: color 0.5s ease-in-out;
+            }
+    
+            p {
+                color: #ccc;
+                font-size: 1.1em;
+                line-height: 1.5;
+            }
+    
+            a {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #e44d26;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease-in-out;
+            }
+    
+            a:hover {
+                background-color: #d0371a;
+            }
+    
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+    
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+    
+            @keyframes titleFadeIn {
+                from {
+                    opacity: 0;
+                }
+    
+                to {
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <h1><span class="welcome-text">Welcome to</span> <span class="chat-app-name">HuruChat</span></h1>
+            <p>The password reset token is either invalid or has expired.</p>
+            <p>Please make sure you are using the correct link or initiate a new password reset.</p>
+        </div>
+    </body>
+    
+    </html>`);
   }
 
   // Find the user by email from the token
@@ -320,15 +1212,455 @@ router.post("/reset-password/:resetToken", async (req, res) => {
   });
 
   if (!user) {
-    return res.render("invalid-token");
+    return res.send(`<!-- views/invalid-token.ejs -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Password Reset</title>
+        <style>
+            body {
+                background-color: #1a1a1a;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+    
+            .container {
+                background-color: #292929;
+                border-radius: 8px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+                padding: 30px;
+                text-align: center;
+                animation: fadeIn 0.8s ease-in-out;
+                max-width: 400px;
+                width: 100%;
+            }
+    
+            h1 {
+                color: #e44d26;
+                font-size: 2.5em;
+                margin-bottom: 20px;
+                animation: titleFadeIn 1s ease-in-out;
+            }
+    
+            .welcome-text {
+                color: #fff;
+                font-size: 1.2em;
+                margin-bottom: 10px;
+            }
+    
+            .chat-app-name {
+                font-weight: bold;
+                color: #e44d26;
+                font-size: 1.3em;
+                transition: color 0.5s ease-in-out;
+            }
+    
+            p {
+                color: #ccc;
+                font-size: 1.1em;
+                line-height: 1.5;
+            }
+    
+            a {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #e44d26;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease-in-out;
+            }
+    
+            a:hover {
+                background-color: #d0371a;
+            }
+    
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+    
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+    
+            @keyframes titleFadeIn {
+                from {
+                    opacity: 0;
+                }
+    
+                to {
+                    opacity: 1;
+                }
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <h1><span class="welcome-text">Welcome to</span> <span class="chat-app-name">HuruChat</span></h1>
+            <p>The password reset token is either invalid or has expired.</p>
+            <p>Please make sure you are using the correct link or initiate a new password reset.</p>
+        </div>
+    </body>
+    
+    </html>`);
   }
 
   try {
     if (newPassword !== confirmPassword) {
-      return res.render("reset-password", {
-        resetToken,
-        error: "Passwords do not match.",
-      });
+      return res.send(`<!DOCTYPE html>
+      <html lang="en">
+      
+      <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Reset Password</title>
+          <style>
+              body {
+                  background: #14161a;
+                  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                  margin: 0;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  height: 100vh;
+                  overflow: hidden;
+                  color: #fff;
+              }
+      
+              .container {
+                  position: relative;
+                  background-color: rgba(255, 255, 255, 0.1);
+                  border-radius: 15px;
+                  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+                  padding: 30px;
+                  text-align: center;
+                  animation: fadeIn 0.8s ease-in-out, rotateCard 30s linear infinite;
+                  max-width: 800px;
+                  width: 100%;
+                  transform-style: preserve-3d;
+                  backdrop-filter: blur(10px);
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+              }
+      
+              .left-column,
+              .right-column {
+                  text-align: center;
+                  margin-bottom: 20px;
+              }
+      
+              .left-column {
+                  order: 2;
+              }
+      
+              .right-column {
+                  order: 1;
+              }
+      
+              .chat-app-name {
+                  font-weight: bold;
+                  font-size: 2em;
+                  transition: color 0.5s ease-in-out;
+              }
+      
+              .chat-app-name span {
+                  display: inline-block;
+                  animation: pulsateRainbow 3s ease-in-out infinite;
+                  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+              }
+      
+              p {
+                  font-size: 1.3em;
+                  line-height: 1.5;
+              }
+      
+              h2 {
+                  color: #fff;
+                  font-size: 2em;
+              }
+      
+              form {
+                  width: 100%;
+                  max-width: 400px;
+                  margin: 0 auto;
+                  display: grid;
+                  grid-template-rows: repeat(3, auto);
+                  grid-gap: 20px;
+              }
+      
+              label {
+                  font-size: 1.3em;
+                  margin-bottom: 8px;
+              }
+      
+              input {
+                  padding: 15px;
+                  width: 100%;
+                  box-sizing: border-box;
+                  border: 2px solid rgba(255, 255, 255, 0.1);
+                  border-radius: 8px;
+                  transition: border-color 0.3s ease-in-out;
+                  background: rgba(255, 255, 255, 0.1);
+                  color: #fff;
+              }
+      
+              input:focus {
+                  border-color: #e44d26;
+              }
+      
+              button {
+                  padding: 15px 30px;
+                  background-color: #e44d26;
+                  color: #fff;
+                  text-decoration: none;
+                  border: none;
+                  border-radius: 8px;
+                  cursor: pointer;
+                  transition: background-color 0.3s ease-in-out;
+              }
+      
+              button:hover {
+                  background-color: #d0371a;
+              }
+      
+              a {
+                  margin-top: 20px;
+                  color: #e44d26;
+                  text-decoration: none;
+                  font-size: 1.2em;
+                  transition: color 0.3s ease-in-out;
+              }
+      
+              a:hover {
+                  color: #b5341d;
+              }
+      
+              .password-container {
+                  position: relative;
+              }
+      
+              .password-container i {
+                  position: absolute;
+                  top: 50%;
+                  right: 10px;
+                  transform: translateY(-50%);
+                  cursor: pointer;
+              }
+      
+              .rotate-stop {
+                  animation: none !important;
+              }
+      
+              .error-message {
+                  color: #ff3333;
+                  margin-top: 10px;
+                  font-size: 1.2em;
+              }
+      
+              @media (min-width: 768px) {
+                  .container {
+                      flex-direction: row;
+                  }
+      
+                  .left-column,
+                  .right-column {
+                      text-align: left;
+                      margin-bottom: 0;
+                  }
+      
+                  .left-column {
+                      order: 1;
+                      flex: 1;
+                  }
+      
+                  .right-column {
+                      order: 2;
+                      flex: 1;
+                  }
+      
+                  .chat-app-name {
+                      font-size: 3em;
+                  }
+      
+                  h2 {
+                      font-size: 2.5em;
+                  }
+              }
+      
+              @keyframes fadeIn {
+                  from {
+                      opacity: 0;
+                      transform: translateY(-20px);
+                  }
+      
+                  to {
+                      opacity: 1;
+                      transform: translateY(0);
+                  }
+              }
+      
+              @keyframes rotateCard {
+                  0% {
+                      transform: rotateY(0deg);
+                  }
+      
+                  25% {
+                      transform: rotateY(60deg);
+                  }
+      
+                  50% {
+                      transform: rotateY(0deg);
+                  }
+      
+                  75% {
+                      transform: rotateY(-50deg);
+                  }
+      
+                  100% {
+                      transform: rotateY(0deg);
+                  }
+              }
+      
+              @keyframes pulsateRainbow {
+                  0% {
+                      color: #e44d26;
+                  }
+      
+                  10% {
+                      color: #ff0000;
+                  }
+      
+                  20% {
+                      color: #ffae00;
+                  }
+      
+                  30% {
+                      color: #00ff00;
+                  }
+      
+                  40% {
+                      color: #ffea00;
+                  }
+      
+                  50% {
+                      color: #0000ff;
+                  }
+      
+                  60% {
+                      color: #8bc34a;
+                  }
+      
+                  70% {
+                      color: #ff00ff;
+                  }
+      
+                  80% {
+                      color: #2196f3;
+                  }
+      
+                  90% {
+                      color: #00ffff;
+                  }
+      
+                  100% {
+                      color: #e44d26;
+                  }
+              }
+          </style>
+      </head>
+      
+      <body>
+          <div class="container" id="cardContainer">
+              <div class="left-column">
+                  <h1><span class="chat-app-name"><span>H</span><span>u</span><span>r</span><span>u</span></span></h1>
+                  <p>Enter and confirm your new password.</p>
+              </div>
+              <div class="right-column">
+                  <h2>Reset Password</h2>
+                  <form id="resetPasswordForm" method="post" onsubmit="return validatePasswords()">
+                      <label for="newPassword">New Password</label>
+                      <div class="password-container">
+                          <input type="password" id="newPassword" name="newPassword" required
+                              onfocus="stopRotation('newPassword')">
+                          <i class="toggle-password" onclick="togglePassword('newPassword')">👁️</i>
+                      </div>
+      
+                      <label for="confirmPassword">Confirm Password</label>
+                      <div class="password-container">
+                          <input type="password" id="confirmPassword" name="confirmPassword" required
+                              onfocus="stopRotation('confirmPassword')">
+                          <i class="toggle-password" onclick="togglePassword('confirmPassword')">👁️</i>
+                      </div>
+      
+                          <div class="error-message">
+                          Passwords do not match.
+                          </div>
+      
+                              <button type="submit">Reset Password</button>
+                  </form>
+              </div>
+          </div>
+      
+          <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                  const resetToken = window.location.pathname.split('/').pop();
+                  const form = document.getElementById('resetPasswordForm');
+                  form.action = "/users/reset-password/${resetToken}";
+              });
+      
+              function stopRotation(elementId) {
+                  document.getElementById("cardContainer").classList.add("rotate-stop");
+                  document.getElementById(elementId).addEventListener("blur", function () {
+                      document.getElementById("cardContainer").classList.remove("rotate-stop");
+                  });
+              }
+      
+              function validatePasswords() {
+                  var newPassword = document.getElementById("newPassword").value;
+                  var confirmPassword = document.getElementById("confirmPassword").value;
+      
+                  if (newPassword !== confirmPassword) {
+                      showError("Passwords do not match. Please enter matching passwords.");
+                      return false; // Prevent form submission
+                  }
+      
+                  return true; // Allow form submission
+              }
+      
+              function togglePassword(elementId) {
+                  var passwordInput = document.getElementById(elementId);
+                  passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+              }
+      
+              function showError(message) {
+                  var errorContainer = document.createElement("div");
+                  errorContainer.className = "error-message";
+                  errorContainer.textContent = message;
+      
+                  var form = document.getElementById('resetPasswordForm');
+                  form.appendChild(errorContainer);
+              }
+          </script>
+      </body>
+      
+      </html>`);
     }
 
     user.password = newPassword;
@@ -336,13 +1668,482 @@ router.post("/reset-password/:resetToken", async (req, res) => {
     user.resetTokenExpires = undefined;
     await user.save();
 
-    res.render("password-reset-success");
+    res.send(`<!-- views/password-success.ejs -->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Password Change Success</title>
+        <style>
+            body {
+                background: linear-gradient(to bottom right, #14161a, #2b2e39);
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+    
+            .container {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 15px;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+                padding: 30px;
+                text-align: center;
+                animation: fadeIn 0.8s ease-in-out, bounce 1s ease-in-out infinite, pulsate 1.5s ease-in-out infinite;
+                max-width: 400px;
+                width: 100%;
+                backdrop-filter: blur(10px);
+            }
+    
+            h1 {
+                color: #e44d26;
+                font-size: 2.5em;
+                margin-bottom: 20px;
+                animation: titleFadeIn 1s ease-in-out;
+            }
+    
+            p {
+                color: #ccc;
+                font-size: 1.1em;
+                line-height: 1.5;
+            }
+    
+            .chat-app-name {
+                font-weight: bold;
+                color: #e44d26;
+                font-size: 1.3em;
+                transition: color 0.5s ease-in-out;
+            }
+    
+            a {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #e44d26;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease-in-out;
+            }
+    
+            a:hover {
+                background-color: #d0371a;
+            }
+    
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+    
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+    
+            @keyframes titleFadeIn {
+                from {
+                    opacity: 0;
+                }
+    
+                to {
+                    opacity: 1;
+                }
+            }
+    
+            @keyframes bounce {
+    
+                0%,
+                20%,
+                50%,
+                80%,
+                100% {
+                    transform: translateY(0);
+                }
+    
+                40% {
+                    transform: translateY(-20px);
+                }
+    
+                60% {
+                    transform: translateY(-10px);
+                }
+            }
+    
+            @keyframes pulsate {
+                0% {
+                    transform: scale(1);
+                }
+    
+                50% {
+                    transform: scale(1.1);
+                }
+    
+                100% {
+                    transform: scale(1);
+                }
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <h1>Password Change Success</h1>
+            <p>Your password has been successfully changed.</p>
+            <p>Thank you for using <span class="chat-app-name">HuruChat</span>.</p>
+        </div>
+    </body>
+    
+    </html>`);
   } catch (error) {
     console.error(error);
-    res.render("reset-password", {
-      resetToken,
-      error: "An error occurred. Please try again.",
-    });
+    res.send(`<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reset Password</title>
+        <style>
+            body {
+                background: #14161a;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                overflow: hidden;
+                color: #fff;
+            }
+    
+            .container {
+                position: relative;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 15px;
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+                padding: 30px;
+                text-align: center;
+                animation: fadeIn 0.8s ease-in-out, rotateCard 30s linear infinite;
+                max-width: 800px;
+                width: 100%;
+                transform-style: preserve-3d;
+                backdrop-filter: blur(10px);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            .left-column,
+            .right-column {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+    
+            .left-column {
+                order: 2;
+            }
+    
+            .right-column {
+                order: 1;
+            }
+    
+            .chat-app-name {
+                font-weight: bold;
+                font-size: 2em;
+                transition: color 0.5s ease-in-out;
+            }
+    
+            .chat-app-name span {
+                display: inline-block;
+                animation: pulsateRainbow 3s ease-in-out infinite;
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+    
+            p {
+                font-size: 1.3em;
+                line-height: 1.5;
+            }
+    
+            h2 {
+                color: #fff;
+                font-size: 2em;
+            }
+    
+            form {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-rows: repeat(3, auto);
+                grid-gap: 20px;
+            }
+    
+            label {
+                font-size: 1.3em;
+                margin-bottom: 8px;
+            }
+    
+            input {
+                padding: 15px;
+                width: 100%;
+                box-sizing: border-box;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                border-radius: 8px;
+                transition: border-color 0.3s ease-in-out;
+                background: rgba(255, 255, 255, 0.1);
+                color: #fff;
+            }
+    
+            input:focus {
+                border-color: #e44d26;
+            }
+    
+            button {
+                padding: 15px 30px;
+                background-color: #e44d26;
+                color: #fff;
+                text-decoration: none;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color 0.3s ease-in-out;
+            }
+    
+            button:hover {
+                background-color: #d0371a;
+            }
+    
+            a {
+                margin-top: 20px;
+                color: #e44d26;
+                text-decoration: none;
+                font-size: 1.2em;
+                transition: color 0.3s ease-in-out;
+            }
+    
+            a:hover {
+                color: #b5341d;
+            }
+    
+            .password-container {
+                position: relative;
+            }
+    
+            .password-container i {
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-50%);
+                cursor: pointer;
+            }
+    
+            .rotate-stop {
+                animation: none !important;
+            }
+    
+            .error-message {
+                color: #ff3333;
+                margin-top: 10px;
+                font-size: 1.2em;
+            }
+    
+            @media (min-width: 768px) {
+                .container {
+                    flex-direction: row;
+                }
+    
+                .left-column,
+                .right-column {
+                    text-align: left;
+                    margin-bottom: 0;
+                }
+    
+                .left-column {
+                    order: 1;
+                    flex: 1;
+                }
+    
+                .right-column {
+                    order: 2;
+                    flex: 1;
+                }
+    
+                .chat-app-name {
+                    font-size: 3em;
+                }
+    
+                h2 {
+                    font-size: 2.5em;
+                }
+            }
+    
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+    
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+    
+            @keyframes rotateCard {
+                0% {
+                    transform: rotateY(0deg);
+                }
+    
+                25% {
+                    transform: rotateY(60deg);
+                }
+    
+                50% {
+                    transform: rotateY(0deg);
+                }
+    
+                75% {
+                    transform: rotateY(-50deg);
+                }
+    
+                100% {
+                    transform: rotateY(0deg);
+                }
+            }
+    
+            @keyframes pulsateRainbow {
+                0% {
+                    color: #e44d26;
+                }
+    
+                10% {
+                    color: #ff0000;
+                }
+    
+                20% {
+                    color: #ffae00;
+                }
+    
+                30% {
+                    color: #00ff00;
+                }
+    
+                40% {
+                    color: #ffea00;
+                }
+    
+                50% {
+                    color: #0000ff;
+                }
+    
+                60% {
+                    color: #8bc34a;
+                }
+    
+                70% {
+                    color: #ff00ff;
+                }
+    
+                80% {
+                    color: #2196f3;
+                }
+    
+                90% {
+                    color: #00ffff;
+                }
+    
+                100% {
+                    color: #e44d26;
+                }
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="container" id="cardContainer">
+            <div class="left-column">
+                <h1><span class="chat-app-name"><span>H</span><span>u</span><span>r</span><span>u</span></span></h1>
+                <p>Enter and confirm your new password.</p>
+            </div>
+            <div class="right-column">
+                <h2>Reset Password</h2>
+                <form id="resetPasswordForm" method="post" onsubmit="return validatePasswords()">
+                    <label for="newPassword">New Password</label>
+                    <div class="password-container">
+                        <input type="password" id="newPassword" name="newPassword" required
+                            onfocus="stopRotation('newPassword')">
+                        <i class="toggle-password" onclick="togglePassword('newPassword')">👁️</i>
+                    </div>
+    
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="password-container">
+                        <input type="password" id="confirmPassword" name="confirmPassword" required
+                            onfocus="stopRotation('confirmPassword')">
+                        <i class="toggle-password" onclick="togglePassword('confirmPassword')">👁️</i>
+                    </div>
+    
+                        <div class="error-message">
+                        An error occurred. Please try again.
+                        </div>
+    
+                            <button type="submit">Reset Password</button>
+                </form>
+            </div>
+        </div>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const resetToken = window.location.pathname.split('/').pop();
+                const form = document.getElementById('resetPasswordForm');
+                form.action = "/users/reset-password/${resetToken}";
+            });
+    
+            function stopRotation(elementId) {
+                document.getElementById("cardContainer").classList.add("rotate-stop");
+                document.getElementById(elementId).addEventListener("blur", function () {
+                    document.getElementById("cardContainer").classList.remove("rotate-stop");
+                });
+            }
+    
+            function validatePasswords() {
+                var newPassword = document.getElementById("newPassword").value;
+                var confirmPassword = document.getElementById("confirmPassword").value;
+    
+                if (newPassword !== confirmPassword) {
+                    showError("Passwords do not match. Please enter matching passwords.");
+                    return false; // Prevent form submission
+                }
+    
+                return true; // Allow form submission
+            }
+    
+            function togglePassword(elementId) {
+                var passwordInput = document.getElementById(elementId);
+                passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+            }
+    
+            function showError(message) {
+                var errorContainer = document.createElement("div");
+                errorContainer.className = "error-message";
+                errorContainer.textContent = message;
+    
+                var form = document.getElementById('resetPasswordForm');
+                form.appendChild(errorContainer);
+            }
+        </script>
+    </body>
+    
+    </html>`,
+    );
   }
 });
 

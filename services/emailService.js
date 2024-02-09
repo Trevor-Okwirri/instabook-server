@@ -38,7 +38,7 @@ const sendEmail = async (to, subject, html) => {
 };
 const sendVerificationEmail = async (to, token) => {
   const subject = "🚀 Welcome to Instabook - Verify Your Email 🚀";
-  const verificationLink = `http://localhost:5000/users/verify/${token}`;
+  const verificationLink = `https://instabook-server-seven.vercel.app/users/verify/${token}`;
 
   // Use HTML to create an attractive email body
   const html = `
@@ -65,7 +65,7 @@ const sendVerificationEmail = async (to, token) => {
 
 const sendPasswordResetEmail = async (to, resetToken) => {
   const subject = "🔒 Password Reset - InstaBook";
-  const resetLink = `http://localhost:5000/users/reset-password/${resetToken}`;
+  const resetLink = `https://instabook-server-seven.vercel.app/users/reset-password/${resetToken}`;
 
   // Use HTML to create an attractive email body
   const html = `
